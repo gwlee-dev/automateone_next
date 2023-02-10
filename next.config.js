@@ -1,6 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+const path = require("path");
+
+const nextConfig = {
+    i18n: {
+        locales: ["en"],
+        defaultLocale: "en",
+    },
+    reactStrictMode: true,
+    sassOptions: {
+        includePaths: [path.join(__dirname, "styles")],
+        prependData: `@import "@/styles/_variables.scss"; @import "@/styles/_mixins.scss";`
+    },
+};
+
+module.exports = nextConfig;
